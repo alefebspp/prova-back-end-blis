@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS mydb_shadow;
+
+GRANT ALL PRIVILEGES ON mydb_shadow.* TO 'prisma_user'@'%';
+FLUSH PRIVILEGES;

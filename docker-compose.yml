@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: mydb           # Banco de dados principal
+      MYSQL_USER: prisma_user        # Usuário do Prisma
+      MYSQL_PASSWORD: prisma_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d # Scripts iniciais
+
+volumes:
+  mysql_data:
